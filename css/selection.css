@@ -1,0 +1,30 @@
+body{
+    background-color: #f5ba65;
+    font-family: Arial, Helvetica, sans-serif;
+    /* width: 100%; */
+}
+
+h2{
+    font-family: monospace;
+}
+
+.black-container{
+    color:  #f5ba65;
+    background-color: #343e44;
+    width: 60%;
+    height: 35vh;
+    border-radius: 5vh;
+
+}
+
+.container-height{
+    height: 100vh;
+   
+}
+
+.volver-inicio{
+    font-size: 12px;
+    text-decoration: none;
+    color: #f5ba65;
+
+}
