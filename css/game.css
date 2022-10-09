@@ -1,12 +1,20 @@
 body{
     background-color: #f5ba65;
     font-family: Arial, Helvetica, sans-serif;
+    height: 80vh;
     /* width: 100%; */
+    font-family: monospace;
+}
+
+/* TABLERO */
+
+.cont-tablero{
+height: 75vh;
 }
 
 
 .tablero{
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     width: 60vh;
     height:60vh;
     display: grid;
@@ -14,10 +22,95 @@ body{
     grid-template-rows: 1fr 1fr 1fr;
 }
 
-.l1{
-    grid-column: line;
-    grid-row: 1 / 4;
-    border-color: black;
-    border-width: 5px;
-    border-style: solid;
+.x1y1{
+    border-bottom: solid;
+    border-right: solid;
+    border-width: 0.3em;
+    border-color: #343e44;
+    /* grid-row: 1 / 2 ;
+    grid-column: 1 / 2 ; */
+
+}
+
+.x1y2{
+    border-bottom: solid;
+    border-right: solid;
+    border-left: solid;
+    border-width: 0.3em;
+    border-color: #343e44;
+
+    
+}
+
+.x1y3{
+    border-bottom: solid;
+    border-left: solid;
+    border-width: 0.3em;
+    border-color: #343e44;
+
+    
+}
+
+.x2y1{
+    border-bottom: solid;
+    border-right: solid;
+    border-top: solid;
+    border-width: 0.3em;
+    border-color: #343e44;
+
+    
+    
+}
+
+.x2y2{
+    border-style: solid; 
+    border-width: 0.3em;
+    border-color: #343e44;
+
+    
+}
+
+.x2y3{
+    border-bottom: solid;
+    border-left: solid;
+    border-top: solid;
+    border-width: 0.3em;
+    border-color: #343e44;
+
+    
+}
+
+.x3y1{
+    border-right: solid;
+    border-top: solid;
+    border-width: 0.3em;
+    border-color: #343e44;
+
+    
+}
+
+.x3y2{
+    border-top: solid;
+    border-left: solid;
+    border-right: solid;
+    border-top: solid;
+    border-width: 0.3em;
+    border-color: #343e44;
+
+    
+}
+
+.x3y3{
+    border-top: solid;
+    border-left: solid;
+    border-top: solid;
+    border-width: 0.3em;
+    border-color: #343e44;
+
+    
+}
+
+.turno-jugador{
+    background-color: #343e44;
+    color: #f5ba65; 
 }
