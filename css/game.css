@@ -128,6 +128,8 @@ height: 75vh;
 
 .cuadrado:hover{
     transition: 0.4s;
+   /* <p> font-size: x-large </p> */
 
     background-color: #f7d3a1;
 }
+
