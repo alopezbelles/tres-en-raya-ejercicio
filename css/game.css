@@ -14,7 +14,7 @@ height: 70vh;
 }
 
 
-.tablero{
+.gameContainer{
     width: 60vh;
     height:60vh;
     display: grid;
@@ -139,6 +139,7 @@ h1{
     font-size: 4em;
     font-family: monospace;
     font-weight: 700;
+    
 
    
     color: #343e44;

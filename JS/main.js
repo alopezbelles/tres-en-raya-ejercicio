@@ -2,6 +2,43 @@
 // let element = document.getElementById('1');
 
 
+//Esto de a continuación es del ejemplo de youtube//
+
+let playerText = document.getElementById("playerText");
+let restartBtn = document.getElementById("restartBtn");
+let boxes = Array.from(document.getElementsByClassName("cuadrado"));
+
+let gameState = ["", "", "", "", "", "", "", "", ""];
+
+let gameActive = true;
+
+let currentPlayer = "O;"
+
+///ARRAYS///
+//Arrays ganadoras//
+
+
+const winConditions = {
+    pos1: [0,1,2],
+    pos2: [3,4,5],
+    pos3: [6,7,8],
+    pos4: [0,3,6],
+    pos5: [1,4,7],
+    pos6: [2,5,8],
+    pos7: [0,4,8],
+    pos8: [2,4,6],
+
+};
+
+
+const O_TEXT = "O";
+const X_TEXT = "X";
+let actualPlayer = X_TEXT;
+
+console.log(O_TEXT)
+
+
+
 // //LOCAL STORAGE//
 // const jugador1 = "Alex";
 // const jugador2 = "";
@@ -9,21 +46,6 @@
 
 
 
-///ARRAYS///
-//Arrays ganadoras//
-
-
-const winConditions = {
-    pos1: ["caja0","caja1","caja2"],
-    pos2: ["caja3","caja4","caja5"],
-    pos3: ["caja6","caja7","caja8"],
-    pos4: ["caja0","caja3","caja6"],
-    pos5: ["caja1","caja4","caja7"],
-    pos6: ["caja2","caja5","caja8"],
-    pos7: ["caja0","caja4","caja8"],
-    pos8: ["caja2","caja4","caja6"],
-
-};
 
 
 
@@ -115,23 +137,33 @@ const marcarCasilla = (posicion) => {
 };
 
 
+
+
 ///////////////////////////
 
-if (("caja1"==="X") && ("caja2"==="X") && ("caja3"==="X")) {
-    console.log("winner");
+// if (("caja1"==="X") && ("caja2"==="X") && ("caja3"==="X")) {
+//     console.log("winner");
+// }
+
+
+
+///BOTON REINICIAR PARTIDA///
+
+restartBtn.addEventListener('click', restart);
+
+function restart() {
+    spaces.fill(null);
+
+    boxes.forEach( cuadrado => {
+        cuadrado.innerText = "";
+    })
+
+    currentPlayer = X_TEXT;
 }
 
+startGame();
 
-
-// let caja1 = document.getElementById("1");
-// let caja2 = document.getElementById("2");
-// let caja3 = document.getElementById("3");
-// let caja4 = document.getElementById("4");
-// let caja5 = document.getElementById("5");
-// let caja6 = document.getElementById("6");
-// let caja7 = document.getElementById("7");
-// let caja8 = document.getElementById("8");
-// let caja9 = document.getElementById("9");
+///////////////////////////////
 
 
 
@@ -140,25 +172,5 @@ if (("caja1"==="X") && ("caja2"==="X") && ("caja3"==="X")) {
 
 
 
-//Capturamos en un array todos los elementos.
-// let casillas = Array.from(document.getElementsByClassName("rectangulo"));
 
-
-//Hemos usado map porque nos permite tratar a cada elemento 
-//del array casillas como un objeto (propiedades + metodos);
-
-// let interruptor = true;
-
-// casillas.map((casilla, /*index*/) => {
-//     casilla.addEventListener("click", () => {
-//         if (casilla.innerHTML == "") {
-//             casilla.innerHTML = (interruptor) ? "X" : "O";
-//             interruptor = !interruptor;
-
-//             //Comprobamos en otra funcion si hay un ganador.......
-
-
-//         };
-//     });
-// });
 

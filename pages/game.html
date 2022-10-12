@@ -27,25 +27,25 @@
 
     <div class="container cont-tablero d-flex align-items-center justify-content-center">
 
-        <div class="row-fluid tablero ">
+        <div class="row-fluid gameContainer ">
 
-            <div id="caja0" class="col box0 d-flex align-items-center justify-content-center cuadrado" onclick="marcarCasilla('0')"></div>  
+            <div id="caja0"  class="col box0 d-flex align-items-center justify-content-center cuadrado" onclick="marcarCasilla('0')"></div>  
 
-            <div id="caja1" class="col box1 d-flex align-items-center justify-content-center cuadrado" onclick="marcarCasilla('1')"></div>
+            <div id="caja1"  class="col box1 d-flex align-items-center justify-content-center cuadrado" onclick="marcarCasilla('1')"></div>
 
-            <div id="caja2" class="col box2 d-flex align-items-center justify-content-center cuadrado" onclick="marcarCasilla('2')"></div>
+            <div id="caja2"  class="col box2 d-flex align-items-center justify-content-center cuadrado" onclick="marcarCasilla('2')"></div>
             
-            <div id="caja3" class="col box3 d-flex align-items-center justify-content-center cuadrado" onclick="marcarCasilla('3')"></div>              
+            <div id="caja3"  class="col box3 d-flex align-items-center justify-content-center cuadrado" onclick="marcarCasilla('3')"></div>              
                  
-            <div id="caja4" class="col box4 d-flex align-items-center justify-content-center cuadrado" onclick="marcarCasilla('4')"></div>           
+            <div id="caja4"  class="col box4 d-flex align-items-center justify-content-center cuadrado" onclick="marcarCasilla('4')"></div>           
    
-            <div id="caja5" class="col box5 d-flex align-items-center justify-content-center cuadrado" onclick="marcarCasilla('5')"></div>
+            <div id="caja5"  class="col box5 d-flex align-items-center justify-content-center cuadrado" onclick="marcarCasilla('5')"></div>
            
-            <div id="caja6" class="col box6 d-flex align-items-center justify-content-center cuadrado" onclick="marcarCasilla('6')"></div>
+            <div id="caja6"  class="col box6 d-flex align-items-center justify-content-center cuadrado" onclick="marcarCasilla('6')"></div>
         
-            <div id="caja7" class="col box7 d-flex align-items-center justify-content-center cuadrado" onclick="marcarCasilla('7')"></div>
+            <div id="caja7"  class="col box7 d-flex align-items-center justify-content-center cuadrado" onclick="marcarCasilla('7')"></div>
        
-            <div id="caja8" class="col box8 d-flex align-items-center justify-content-center cuadrado" onclick="marcarCasilla('8')"></div>
+            <div id="caja8"  class="col box8 d-flex align-items-center justify-content-center cuadrado" onclick="marcarCasilla('8')"></div>
                 
         </div>      
 
@@ -53,10 +53,16 @@
     <br>
 
 
-    <div class="container d-flex justify-content-center align-items-center">
-        <div class="row">
-            <h5 class="turno-jugador">TURNO JUGADOR 1</h5>
+    <div class="container d-flex justify-content-evenly align-items-center">
+        <div class="row-flex ">
+            <h5 id="playerText" class="turno-jugador">TURNO JUGADOR 1</h5> 
         </div>
+        <div class="row-flex">
+            <h5 id="playerText" class="turno-jugador">TURNO JUGADOR 1</h5> 
+        </div>
+
+            
+        
 
     </div>
 
@@ -65,7 +71,7 @@
     <div class="container">
         <div class="row">
             <div class="col d-flex align-items-center justify-content-center">
-               <a href="./game.html"> <button type="button" class="btn btn-outline-dark btn-lg">RESET</button> </a>
+               <button type="button" id="restartBtn" class="btn btn-outline-dark btn-lg">RESTART</button> 
             </div>     
         </div>
         <br>
