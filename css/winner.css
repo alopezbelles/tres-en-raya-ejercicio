@@ -3,4 +3,27 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     /* width: 100%; */
     font-family: monospace;
+    height: 100vh;
+    width: 100vw;
+}
+
+.bg-image{
+
+    background-image: url(/images\ and\ videos/winner-page-02.png);
+    height: 100vh;
+    width: 100vw;
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center; 
+    margin: 0;
+    
+}
+
+.black-container{
+    color:  #f5ba65;
+    background-color: #343e44;
+    width: 60%;
+    height: 30%;
+    border-radius: 5vh;
+
 }

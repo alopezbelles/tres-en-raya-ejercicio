@@ -4,38 +4,32 @@
 
 //Esto de a continuación es del ejemplo de youtube//
 
-let playerText = document.getElementById("playerText");
-let restartBtn = document.getElementById("restartBtn");
+let playerTextX = document.getElementById("playerTextX");
+let playerTextO = document.getElementById("playerTextO");
+
 let boxes = Array.from(document.getElementsByClassName("cuadrado"));
 
 let gameState = ["", "", "", "", "", "", "", "", ""];
 
 let gameActive = true;
 
-let currentPlayer = "O;"
-
 ///ARRAYS///
 //Arrays ganadoras//
-
-
-const winConditions = {
-    pos1: [0,1,2],
-    pos2: [3,4,5],
-    pos3: [6,7,8],
-    pos4: [0,3,6],
-    pos5: [1,4,7],
-    pos6: [2,5,8],
-    pos7: [0,4,8],
-    pos8: [2,4,6],
-
-};
+const winConditions = [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,3,6],
+    [1,4,7],
+    [2,5,8],
+    [0,4,8],
+    [2,4,6],
+]
 
 
 const O_TEXT = "O";
 const X_TEXT = "X";
 let actualPlayer = X_TEXT;
-
-console.log(O_TEXT)
 
 
 
@@ -43,12 +37,6 @@ console.log(O_TEXT)
 // const jugador1 = "Alex";
 // const jugador2 = "";
 // localStorage.setItem("nombreUsuario", jugador1);
-
-
-
-
-
-
 
 
 // let player1Mark = `X`;
@@ -62,103 +50,138 @@ const statusText = document.querySelector("#statusText")
 //////////////////////////////////
 
 
-let interruptor = true;
+let turnoX = true;
 
 
-const marcarCasilla = (posicion) => {
+const onBoxChecked = (position) => {
 
-    switch(posicion){
-        case '0':
-            if(caja0.innerHTML == ""){
-                caja0.innerHTML = (interruptor) ?  `<h1>X</h1>` : `<h1>O</h1>`;
-                interruptor = !interruptor;
-            };
-        break;
+    console.log("onBoxChecked: " + position + " currentValue: " + gameState[position])
 
-        case '1':
-            if(caja1.innerHTML == ""){
-                caja1.innerHTML = (interruptor) ? `<h1>X</h1>` : `<h1>O</h1>`;
-                interruptor = !interruptor;
-            };
-        break;
-
-        case '2':
-            if(caja2.innerHTML == ""){
-                caja2.innerHTML = (interruptor) ? `<h1>X</h1>` : `<h1>O</h1>`;
-                interruptor = !interruptor;
-            };
-        break;
-
-        case '3':
-            if(caja3.innerHTML == ""){
-                caja3.innerHTML = (interruptor) ? `<h1>X</h1>` : `<h1>O</h1>`;
-                interruptor = !interruptor;
-            };
-        break;
-
-        case '4':
-            if(caja4.innerHTML == ""){
-                caja4.innerHTML = (interruptor) ? `<h1>X</h1>` : `<h1>O</h1>`;
-                interruptor = !interruptor;
-            };
-        break;
-
-        case '5':
-            if(caja5.innerHTML == ""){
-                caja5.innerHTML = (interruptor) ? `<h1>X</h1>` : `<h1>O</h1>`;
-                interruptor = !interruptor;
-            };
-        break;
-
-        case '6':
-            if(caja6.innerHTML == ""){
-                caja6.innerHTML = (interruptor) ? `<h1>X</h1>` : `<h1>O</h1>`;
-                interruptor = !interruptor;
-            };
-        break;
-
-        case '7':
-            if(caja7.innerHTML == ""){
-                caja7.innerHTML = (interruptor) ? `<h1>X</h1>` : `<h1>O</h1>`;
-                interruptor = !interruptor;
-            };
-        break;
-
-        case '8':
-            if(caja8.innerHTML == ""){
-                caja8.innerHTML = (interruptor) ? `<h1>X</h1>` : `<h1>O</h1>`;
-                interruptor = !interruptor;
-            };
-        break;
-
-        default:
-            console.log("error");
-    };
+    if(gameState[position] === "") {
+        checkBox(position);
+        checkWinningCondition();
+        nextPlayer();
+    }
 };
 
-
-
-
-///////////////////////////
-
-// if (("caja1"==="X") && ("caja2"==="X") && ("caja3"==="X")) {
-//     console.log("winner");
-// }
-
-
-
-///BOTON REINICIAR PARTIDA///
-
-restartBtn.addEventListener('click', restart);
-
 function restart() {
-    spaces.fill(null);
+    gameState = ["", "", "", "", "", "", "", "", ""];
 
     boxes.forEach( cuadrado => {
-        cuadrado.innerText = "";
+        cuadrado.innerHTML = "";
     })
+}
 
-    currentPlayer = X_TEXT;
+function startGame() {
+    // recuperar nombres desde storage
+    // modificar contenido de playerTextX y playerTextO (Turno de Pepito)
+    // let nombreX = localStorage.getItem("nombreX");
+    // let nombreO = localStorage.getItem("nombreO");
+    let nombreX = "PEPITO";
+    let nombreO = "JUANITO";
+
+    turnoX = true;
+
+    playerTextX.innerHTML = "TURNO DE " + nombreX;
+    playerTextO.innerHTML = "TURNO DE " + nombreO;
+    if(turnoX) {
+        playerTextX.className = "turno-jugador";
+        playerTextO.className = "turno-jugador-otro";
+    } else {
+        playerTextX.className = "turno-jugador-otro";
+        playerTextO.className = "turno-jugador";
+    }
+
+    restart();
+}
+
+function checkBox(position) {
+
+    //gameState[position] = turnoX ? "X" : "0";
+
+    if(turnoX) {
+        gameState[position] = "X";
+    } else {
+        // turno O
+        gameState[position] = "0";
+    }
+
+    switch(position) {
+        case 0:
+            caja0.innerHTML = turnoX ? `<h1>X</h1>` : `<h1>0</h1>`;
+            break;
+        case 1:
+            caja1.innerHTML = turnoX ? `<h1>X</h1>` : `<h1>0</h1>`;
+            break;
+        case 2:
+            caja2.innerHTML = turnoX ? `<h1>X</h1>` : `<h1>0</h1>`;
+            break;
+        case 3:
+            caja3.innerHTML = turnoX ? `<h1>X</h1>` : `<h1>0</h1>`;
+            break;
+        case 4:
+            caja4.innerHTML = turnoX ? `<h1>X</h1>` : `<h1>0</h1>`;
+            break;
+        case 5:
+            caja5.innerHTML = turnoX ? `<h1>X</h1>` : `<h1>0</h1>`;
+            break;
+        case 6:
+            caja6.innerHTML = turnoX ? `<h1>X</h1>` : `<h1>0</h1>`;
+            break;
+        case 7:
+            caja7.innerHTML = turnoX ? `<h1>X</h1>` : `<h1>0</h1>`;
+            break;
+        case 8:
+            caja8.innerHTML = turnoX ? `<h1>X</h1>` : `<h1>0</h1>`;
+            break;
+        default:
+            console.log("Wrong value");
+            break;
+    }
+
+    console.log(gameState);
+}
+
+function checkWinningCondition() {
+    for(let i=0; i<winConditions.length; i++) {
+        let element = winConditions[i]; //i=0 -> [0,1,2]
+
+        let position1 = element[0]; //[0,1,2] -> 0
+        let position2 = element[1]; //[0,1,2] -> 1
+        let position3 = element[2]; //[0,1,2] -> 2
+        
+        let valueInPosition1 = gameState[position1]; // gameState[0]
+        let valueInPosition2 = gameState[position2]; // gameState[1]
+        let valueInPosition3 = gameState[position3]; // gameState[2]
+
+        if(valueInPosition1 === valueInPosition2 && valueInPosition2 == valueInPosition3 && valueInPosition1 !== "") {
+            let winner = valueInPosition1;
+            console.log("Winner found!: " + winner);
+
+            window.location.href = "./winner.html"
+            restart();
+            break;
+        }
+    };
+}
+
+function nextPlayer() {
+    // turnoX = !turnoX;
+
+    if(turnoX) {
+        turnoX = false;
+    } else {
+        // turnoX es false
+        turnoX = true;
+    }
+
+    if(turnoX) {
+        playerTextX.className = "turno-jugador";
+        playerTextO.className = "turno-jugador-otro";
+    } else {
+        playerTextX.className = "turno-jugador-otro";
+        playerTextO.className = "turno-jugador";
+    }
 }
 
 startGame();

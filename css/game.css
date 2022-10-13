@@ -100,7 +100,6 @@ height: 70vh;
     border-top: solid;
     border-width: 0.3em;
     border-color: #343e44;
-
     
 }
 
@@ -114,9 +113,14 @@ height: 70vh;
     
 }
 
-.turno-jugador{
+.turno-jugador {
     background-color: #343e44;
     color: #f5ba65; 
+}
+
+.turno-jugador-otro {
+    background-color: #f5ba65;
+    color: #343e44; 
 }
 
 .cuadrado{
