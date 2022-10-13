@@ -9,7 +9,7 @@ body{
 
 .bg-image{
 
-    background-image: url(/images\ and\ videos/winner-page-02.png);
+    background-image: url(../images\ and\ videos/winner-page-02.png);
     height: 100vh;
     width: 100vw;
     background-repeat: repeat;
