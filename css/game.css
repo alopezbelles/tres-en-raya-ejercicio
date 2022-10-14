@@ -1,8 +1,9 @@
 body{
-    background-color: #f5ba65;
+    /* background-color: #f5ba65; */
+    background-image: linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);
     color: black;
     font-family: Arial, Helvetica, sans-serif;
-    height: 80vh;
+    height: 100vh;
     /* width: 100%; */
     font-family: monospace;
 }
@@ -135,7 +136,7 @@ height: 70vh;
     transition: 0.4s;
    /* <p> font-size: x-large </p> */
 
-    background-color: #f7d3a1;
+    background-color: #ffcbb9;
 }
 
 
