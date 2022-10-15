@@ -53,9 +53,6 @@ function restart() {
 ///////////////////////////////////////
 
 
-
-//////////////////////////////////////
-
 function startGame() {
    
     let nombreX = window.sessionStorage.getItem("Nombre1");
@@ -153,6 +150,8 @@ function checkWinningCondition() {
     };
 }
 
+// FUNCIÓN PARA CAMBIO DE JUGADOR //
+
 function nextPlayer() {
     // turnoX = !turnoX;
 
@@ -171,6 +170,9 @@ function nextPlayer() {
         playerTextO.className = "turno-jugador";
     }
 }
+
+
+////////// EMPIEZA EL JUEGO /////
 
 startGame();
 
