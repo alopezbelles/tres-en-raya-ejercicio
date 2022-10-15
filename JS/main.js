@@ -1,8 +1,5 @@
-// //Relación a imágenes//
-// let element = document.getElementById('1');
 
-
-//Esto de a continuación es del ejemplo de youtube//
+///// V A R I A B L E S /////
 
 let playerTextX = document.getElementById("playerTextX");
 let playerTextO = document.getElementById("playerTextO");
@@ -12,6 +9,12 @@ let boxes = Array.from(document.getElementsByClassName("cuadrado"));
 let gameState = ["", "", "", "", "", "", "", "", ""];
 
 let gameActive = true;
+
+const O_TEXT = "O";
+
+const X_TEXT = "X";
+
+let actualPlayer = X_TEXT;
 
 ///ARRAYS///
 //Arrays ganadoras//
@@ -27,9 +30,7 @@ const winConditions = [
 ]
 
 
-const O_TEXT = "O";
-const X_TEXT = "X";
-let actualPlayer = X_TEXT;
+
 
 
 
@@ -43,6 +44,8 @@ let actualPlayer = X_TEXT;
 // let player2Mark = `O`;
 
 
+
+////CREO QUE ESTO PUEDO BORRARLO
 const cells = document.querySelectorAll(".cuadrado");
 const statusText = document.querySelector("#statusText")
 
@@ -72,11 +75,29 @@ function restart() {
     })
 }
 
+///////////////////////////////////////
+
+function showImputs(){
+    let idPlayer1 = document.getElementById("idPlayer1");
+
+    console.log(idPlayer1);
+    
+
+}
+
+showImputs();
+
+
+//////////////////////////////////////
+
 function startGame() {
-    // recuperar nombres desde storage
+    // recuperar nombres desde storage:
     // modificar contenido de playerTextX y playerTextO (Turno de Pepito)
     // let nombreX = localStorage.getItem("nombreX");
     // let nombreO = localStorage.getItem("nombreO");
+    
+   
+
     let nombreX = "PEPITO";
     let nombreO = "JUANITO";
 
