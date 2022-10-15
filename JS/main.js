@@ -2,19 +2,14 @@
 ///// V A R I A B L E S /////
 
 let playerTextX = document.getElementById("playerTextX");
+
 let playerTextO = document.getElementById("playerTextO");
 
 let boxes = Array.from(document.getElementsByClassName("cuadrado"));
 
 let gameState = ["", "", "", "", "", "", "", "", ""];
 
-let gameActive = true;
-
-const O_TEXT = "O";
-
-const X_TEXT = "X";
-
-let actualPlayer = X_TEXT;
+let turnoX = true;
 
 ///ARRAYS///
 //Arrays ganadoras//
@@ -30,30 +25,10 @@ const winConditions = [
 ]
 
 
-
-
-
-
-// //LOCAL STORAGE//
-// const jugador1 = "Alex";
-// const jugador2 = "";
-// localStorage.setItem("nombreUsuario", jugador1);
-
-
-// let player1Mark = `X`;
-// let player2Mark = `O`;
-
-
-
-////CREO QUE ESTO PUEDO BORRARLO
-const cells = document.querySelectorAll(".cuadrado");
-const statusText = document.querySelector("#statusText")
-
-
 //////////////////////////////////
+//Esto nos indica quien está jugando. 
 
 
-let turnoX = true;
 
 
 const onBoxChecked = (position) => {
@@ -77,29 +52,14 @@ function restart() {
 
 ///////////////////////////////////////
 
-function showImputs(){
-    let idPlayer1 = document.getElementById("idPlayer1");
-
-    console.log(idPlayer1);
-    
-
-}
-
-showImputs();
 
 
 //////////////////////////////////////
 
 function startGame() {
-    // recuperar nombres desde storage:
-    // modificar contenido de playerTextX y playerTextO (Turno de Pepito)
-    // let nombreX = localStorage.getItem("nombreX");
-    // let nombreO = localStorage.getItem("nombreO");
-    
    
-
-    let nombreX = "PEPITO";
-    let nombreO = "JUANITO";
+    let nombreX = window.sessionStorage.getItem("Nombre1");
+    let nombreO = window.sessionStorage.getItem("Nombre2");
 
     turnoX = true;
 
@@ -176,11 +136,18 @@ function checkWinningCondition() {
         let valueInPosition3 = gameState[position3]; // gameState[2]
 
         if(valueInPosition1 === valueInPosition2 && valueInPosition2 == valueInPosition3 && valueInPosition1 !== "") {
-            let winner = valueInPosition1;
-            console.log("Winner found!: " + winner);
 
-            window.location.href = "./winner.html"
-            restart();
+            let winner = "";
+            if(turnoX == true){
+                 winner = window.sessionStorage.getItem("Nombre1");
+            }else{
+                 winner = window.sessionStorage.getItem("Nombre2");
+            }   
+           
+            window.sessionStorage.setItem("winner", winner);
+
+            window.location.href = "./winner.html";
+            
             break;
         }
     };
