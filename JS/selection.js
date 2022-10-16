@@ -8,7 +8,5 @@ function showImputs(){
 
     console.log("Nombre jugador 1"+ idPlayer1 + "Nombre jugador 2"+ idPlayer2);
 
-    
-
 }
 
