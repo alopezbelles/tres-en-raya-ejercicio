@@ -1,9 +1,9 @@
 
 ///// V A R I A B L E S /////
 
-let playerTextX = document.getElementById("playerTextX");
+// let playerTextX = document.getElementById("playerTextX");
 
-let playerTextO = document.getElementById("playerTextO");
+// let playerTextO = document.getElementById("playerTextO");
 
 let boxes = Array.from(document.getElementsByClassName("cuadrado"));
 
@@ -11,8 +11,8 @@ let gameState = ["", "", "", "", "", "", "", "", ""];
 
 let turnoX = true;
 
-///ARRAYS///
-//Arrays ganadoras//
+
+////// ARRAYS GANADORAS //////
 const winConditions = [
     [0,1,2],
     [3,4,5],
@@ -29,6 +29,7 @@ const winConditions = [
 //Esto nos indica quien está jugando. 
 
 
+let turnos = 6;
 
 
 const onBoxChecked = (position) => {
@@ -39,6 +40,7 @@ const onBoxChecked = (position) => {
         checkBox(position);
         checkWinningCondition();
         nextPlayer();
+        
     }
 };
 
@@ -48,6 +50,7 @@ function restart() {
     boxes.forEach( cuadrado => {
         cuadrado.innerHTML = "";
     })
+    
 }
 
 ///////////////////////////////////////
@@ -76,6 +79,7 @@ function startGame() {
 function checkBox(position) {
 
     //gameState[position] = turnoX ? "X" : "0";
+
 
     if(turnoX) {
         gameState[position] = "X";
