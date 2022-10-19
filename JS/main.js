@@ -3,7 +3,7 @@
 
 let boxes = Array.from(document.getElementsByClassName("cuadrado"));
 
-let gameState = ["", "", "", "", "", "", "", "", ""];
+let gameState = ["", "", "", "", "", "", "", "", ""]; //límite 6 fichas (if)
 
 let turnoX = true;
 
@@ -28,6 +28,7 @@ const onBoxChecked = (position) => {
     if(gameState[position] === "") {
         checkBox(position);
         checkWinningCondition();
+        //función CPU
         nextPlayer();
         
     }
@@ -42,7 +43,23 @@ function restart() {
     
 }
 
-///////////////////////////////////////
+/////////// C P U //////////
+
+let cpu1 = window.sessionStorage.getItem("Nature1") ;
+
+let cpu2 = window.sessionStorage.getItem("Nature2") ;
+
+
+function playerCpu () {
+
+    if(turnoX){
+        return cpu1;
+    } else {
+        return cpu2;
+    }
+};
+
+///////////////////////////
 
 
 function startGame() {
@@ -143,6 +160,8 @@ function checkWinningCondition() {
 
 
 function nextPlayer() {
+
+    ////Aquí tengo que poner un IF valorando si el turno es de la CPU. 
     // turnoX = !turnoX;
 
     if(turnoX) {
