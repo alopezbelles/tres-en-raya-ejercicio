@@ -45,6 +45,10 @@ function restart() {
 
 /////////// C P U //////////
 
+//Tengo que hacer una función para que cuando alguno de los dos jugadores sea una de las variables CPU, 
+//su tirada será random. Para eso, tendrá que detectar una de las posiciones vacías y colocar una ficha (X o O, en función del turno), 
+//en una casilla vacía. 
+
 let cpu1 = window.sessionStorage.getItem("Nature1") ;
 
 let cpu2 = window.sessionStorage.getItem("Nature2") ;
